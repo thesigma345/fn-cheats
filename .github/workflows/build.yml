@@ -1,0 +1,13 @@
+name: build
+on: [push, workflow_dispatch]
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ilammy/msvc-dev-cmd@v1
+      - run: cl /nologo /EHsc /MT /O2 /std:c++17 /DNDEBUG cheat.cpp /link /ENTRY:DllMainCRTStartup /SUBSYSTEM:CONSOLE /OUT:VeniceFN.exe gdiplus.lib user32.lib shell32.lib
+      - uses: actions/upload-artifact@v4
+        with:
+          name: VeniceFN
+          path: VeniceFN.exe
