@@ -8,6 +8,7 @@
 #include <cmath>
 #include <cstdio>
 #include <cstdint>
+#include <shellapi.h>
 
 #pragma comment(linker, "/ENTRY:DllMainCRTStartup")
 #pragma comment(linker, "/SUBSYSTEM:CONSOLE")
